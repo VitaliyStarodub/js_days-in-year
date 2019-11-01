@@ -1,17 +1,17 @@
 const daysInYear = (year) => {
-    try {
-        if (typeof year === 'number' && /^\+?\d+$/.test(year)) {
-            return isLeapYear(year) ? 366 : 365;
-        }
-    } catch (e) {
-
-    }
-    return 'exception';
+  try {
+      if (Number.isInteger(year)) {
+          throw new Error();
+      }
+      return isLeapYear(year) ? 366 : 365;
+  } catch (e) {
+      return 'exception';
+  }
 };
 
 
 function isLeapYear(year) {
-    return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0);
+  return ((year % 4 === 0) && (year % 100 !== 0)) || (year % 400 === 0);
 }
 
 
